@@ -27,7 +27,7 @@
  <pre><code>sudo -i</code></pre>
 
 6. Run kubeadmin init command:
- <pre><code>kubeadm init --apiserver-advertise-address=192.168.56.2 --control-plane-endpoint=control-plane-1</code></pre>
+ <pre><code>kubeadm init --apiserver-advertise-address=192.168.56.2 --control-plane-endpoint=192.168.56.2</code></pre>
 
 7. From above command output note down kubeadm join command:
  ![kubeadm init output](kubeadm-init.png)
@@ -51,3 +51,10 @@
 </code></pre>
 
 11. [Create sample user following link](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
+
+12. Run kubectl proxy on host machine to access dashboard
+<pre><code>
+ kubectl proxy
+</code></pre>
+
+Dashboard is available at [Dashboard Url](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
