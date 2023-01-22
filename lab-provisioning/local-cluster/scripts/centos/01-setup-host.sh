@@ -7,6 +7,9 @@ NUM_WORKER_NODES=$4
 MASTER_IP_START=$5
 NODE_IP_START=$6
 
+
+sudo swapoff -a
+
 ADDRESS="$(ip -4 addr show $IFNAME | grep "inet" | head -1 |awk '{print $2}' | cut -d/ -f1)"
 sed -e "s/^.*${HOSTNAME}.*/${ADDRESS} ${HOSTNAME} ${HOSTNAME}.local/" -i /etc/hosts
 

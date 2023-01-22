@@ -13,7 +13,7 @@ MASTER_IP_START = 1
 NODE_IP_START = 11
 
 OSVERSION="7"
-DOCKER_EE_VERSION="20.10.12"
+DOCKER_CE_VERSION="18.09.1"
 
 CLUSTER_ADDRESS="control-plane-1"
 
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 
             node.vm.provision "configure-iptables", type: "shell", :path => "scripts/centos/02-configure-iptables.sh" 
             node.vm.provision "install-container-runtime", type: "shell", :path => "scripts/centos/03-install-container-runtime.sh" do |s|
-                s.args = ["#{OSVERSION}", "#{DOCKER_EE_VERSION}"]
+                s.args = ["#{DOCKER_CE_VERSION}"]
             end
             node.vm.provision "install-kube-components", type: "shell", :path => "scripts/centos/04-install-kube-components.sh" 
             
@@ -79,7 +79,7 @@ Vagrant.configure("2") do |config|
 
             node.vm.provision "configure-iptables", type: "shell", :path => "scripts/centos/02-configure-iptables.sh" 
             node.vm.provision "install-container-runtime", type: "shell", :path => "scripts/centos/03-install-container-runtime.sh" do |s|
-                s.args = ["#{OSVERSION}", "#{DOCKER_EE_VERSION}"]
+                s.args = ["#{DOCKER_CE_VERSION}"]
             end
             node.vm.provision "install-kube-components", type: "shell", :path => "scripts/centos/04-install-kube-components.sh" 
             
