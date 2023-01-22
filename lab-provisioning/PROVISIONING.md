@@ -29,7 +29,7 @@
 6. Run kubeadmin init command:
  <pre><code>kubeadm init --apiserver-advertise-address=192.168.56.2 --control-plane-endpoint=192.168.56.2</code></pre>
 
-7. From above command output note down kubeadm join command:
+7. From above command output note down kubeadm join command and run it on all worker nodes: 
  ![kubeadm init output](kubeadm-init.png)
 
 
