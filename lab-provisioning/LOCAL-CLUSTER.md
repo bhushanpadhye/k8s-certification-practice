@@ -32,37 +32,25 @@
 
 
 8. To start using your cluster, you need to run the following as a regular user and copy ~/.kube/config as admin kube config file to your host:
-<pre><code>
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-</code></pre>
+<pre><code>mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config</code></pre>
 
 9. Verify nodes by running command on control-plane as regular user
-<pre><code> 
-  kubectl get nodes
-</code></pre>
+<pre><code>kubectl get nodes</code></pre>
 
 10. Deploying pod network addon - Weave Net
-<pre><code>
-    kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-</code></pre>
+<pre><code>kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml</code></pre>
 
 11. The Dashboard UI is not deployed by default. To deploy it, run the following command:
-<pre><code>
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
-</code></pre>
+<pre><code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml</code></pre>
 
 12. [Create sample user following link](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
 13. Run kubectl proxy on host machine to access dashboard
-<pre><code>
- kubectl proxy
-</code></pre>
+<pre><code>kubectl proxy</code></pre>
 
 Dashboard is available at [Dashboard Url](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
 P.S. To merge kube config file on unix based systems
-<pre><code>
-  $ cp ~/.kube/config ~/.kube/config.bak && KUBECONFIG=~/.kube/config:/tmp/new-config kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config
-</code></pre>
+<pre><code>cp ~/.kube/config ~/.kube/config.bak && KUBECONFIG=~/.kube/config:/tmp/new-config kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config</code></pre>
