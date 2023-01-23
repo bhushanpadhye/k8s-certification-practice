@@ -16,34 +16,8 @@ INSTALLSCR='sudo yum install -y docker-ce-"$DOCKER_CE_VERSION" \
 eval 'echo "$INSTALLSCR"'
 eval $INSTALLSCR
 
-###Install Git
-sudo yum install -y git
-
-
-###Clone cri-dockerd source
-cd /tmp
-git clone https://github.com/Mirantis/cri-dockerd.git
-
-### Disable containerd
-sudo systemctl stop containerd
-sudo systemctl disable containerd
-
-###Install GO###
-curl -O https://storage.googleapis.com/golang/getgo/installer_linux
-chmod +x ./installer_linux
-./installer_linux
-source ~/.bash_profile
-
-cd cri-dockerd
-mkdir bin
-go build -o bin/cri-dockerd
-sudo mkdir -p /usr/local/bin
-sudo install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
-sudo cp -a packaging/systemd/* /etc/systemd/system
-sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
-sudo systemctl daemon-reload
-sudo systemctl enable cri-docker.service
-sudo systemctl enable --now cri-docker.socket
+sudo sed -i 's/disabled_plugins/#   disabled_plugins/g' /etc/containerd/config.toml
+sudo systemctl restart containerd
 
 # Start Docker
 sudo systemctl enable docker
