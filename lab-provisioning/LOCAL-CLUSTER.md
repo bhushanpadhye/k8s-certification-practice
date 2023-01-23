@@ -36,11 +36,11 @@
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config</code></pre>
 
-9. Verify nodes by running command on control-plane as regular user
+9. Verify nodes by running command on control-plane as regular user and note that core-dns pods are pending.
 <pre><code>kubectl get pods -A</code></pre>
 
 10. Deploying pod network addon - Calico
-<pre><code>kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml</code></pre>
+<pre><code>kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.17.0/manifests/calico.yaml</code></pre>
 
 11. The Dashboard UI is not deployed by default. To deploy it, run the following command:
 <pre><code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml</code></pre>

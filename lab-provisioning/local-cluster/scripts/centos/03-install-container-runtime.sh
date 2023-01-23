@@ -24,6 +24,9 @@ sudo yum install -y git
 cd /tmp
 git clone https://github.com/Mirantis/cri-dockerd.git
 
+### Disable containerd
+sudo systemctl stop containerd
+sudo systemctl disable containerd
 
 ###Install GO###
 curl -O https://storage.googleapis.com/golang/getgo/installer_linux
