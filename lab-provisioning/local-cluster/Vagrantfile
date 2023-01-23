@@ -43,9 +43,10 @@ Vagrant.configure("2") do |config|
             node.vm.hostname = "control-plane-#{i}"
             node.vm.network :private_network, ip: IP_SERIES + "#{MASTER_IP_START + i}"
             node.vm.network "forwarded_port", guest: 22, host: "#{2710 + i}"
+            
 
             node.vm.provision "setup-host", type: "shell", :path => "scripts/centos/01-setup-host.sh" do |s|
-                s.args = ["eth0", "#{IP_SERIES}","#{NUM_CONTROL_PLANES}","#{NUM_WORKER_NODES}","#{MASTER_IP_START}","#{NODE_IP_START}"]
+                s.args = ["eth1", "#{IP_SERIES}","#{NUM_CONTROL_PLANES}","#{NUM_WORKER_NODES}","#{MASTER_IP_START}","#{NODE_IP_START}"]
             end
 
             node.vm.provision "configure-iptables", type: "shell", :path => "scripts/centos/02-configure-iptables.sh" 
@@ -70,9 +71,10 @@ Vagrant.configure("2") do |config|
             node.vm.hostname = "worker-node-#{i}"
             node.vm.network :private_network, ip: IP_SERIES + "#{NODE_IP_START + i}"
             node.vm.network "forwarded_port", guest: 22, host: "#{2720 + i}"
+     
 
             node.vm.provision "setup-host", type: "shell", :path => "scripts/centos/01-setup-host.sh" do |s|
-                s.args = ["eth0", "#{IP_SERIES}","#{NUM_CONTROL_PLANES}","#{NUM_WORKER_NODES}","#{MASTER_IP_START}","#{NODE_IP_START}"]
+                s.args = ["eth1", "#{IP_SERIES}","#{NUM_CONTROL_PLANES}","#{NUM_WORKER_NODES}","#{MASTER_IP_START}","#{NODE_IP_START}"]
             end
 
             node.vm.provision "configure-iptables", type: "shell", :path => "scripts/centos/02-configure-iptables.sh" 
