@@ -1,6 +1,4 @@
-# Provisioning Lab Environment
-
-## Local Cluster Setup 
+# Local Cluster Setup 
 
 ### Pre-Requisites
 
@@ -27,9 +25,9 @@
  <pre><code>sudo -i</code></pre>
 
 6. Run kubeadmin init command:
- <pre><code>kubeadm init --apiserver-advertise-address=192.168.56.2 --control-plane-endpoint=192.168.56.2</code></pre>
+ <pre><code>kubeadm init --apiserver-advertise-address=192.168.56.2 --control-plane-endpoint=control-plane-1</code></pre>
 
-7. From above command output note down kubeadm join command and run it on all worker nodes: 
+7. From above command output note down kubeadm join command and run it on all worker nodes as root user(sudo -i): 
  ![kubeadm init output](kubeadm-init.png)
 
 
@@ -40,21 +38,31 @@
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 </code></pre>
 
-9. Deploying pod network addon - Weave Net
+9. Verify nodes by running command on control-plane as regular user
+<pre><code> 
+  kubectl get nodes
+</code></pre>
+
+10. Deploying pod network addon - Weave Net
 <pre><code>
     kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 </code></pre>
 
-10. The Dashboard UI is not deployed by default. To deploy it, run the following command:
+11. The Dashboard UI is not deployed by default. To deploy it, run the following command:
 <pre><code>
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 </code></pre>
 
-11. [Create sample user following link](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
+12. [Create sample user following link](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
-12. Run kubectl proxy on host machine to access dashboard
+13. Run kubectl proxy on host machine to access dashboard
 <pre><code>
  kubectl proxy
 </code></pre>
 
 Dashboard is available at [Dashboard Url](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+
+P.S. To merge kube config file on unix based systems
+<pre><code>
+  $ cp ~/.kube/config ~/.kube/config.bak && KUBECONFIG=~/.kube/config:/tmp/new-config kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config
+</code></pre>
