@@ -4,8 +4,8 @@ NUM_CONTROL_PLANES=1
 NUM_WORKER_NODES=2
 
 # Cluster user for password based ssh
-CLUSTER_USER = "student"
-CLUSTER_USER_PWD = "Demo@1234"
+#CLUSTER_USER = "student"
+#CLUSTER_USER_PWD = "Demo@1234"
 
 # Network configuration
 IP_SERIES = "192.168.56."
@@ -13,9 +13,7 @@ MASTER_IP_START = 1
 NODE_IP_START = 11
 
 OSVERSION="7"
-DOCKER_CE_VERSION="18.09.1"
-
-CLUSTER_ADDRESS="control-plane-1"
+DOCKER_CE_VERSION="20.10.9"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
