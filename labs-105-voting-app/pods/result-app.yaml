@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo-voting-app
+    name: result-app-pod
+  name: result-app-pod
+spec:
+  containers:
+  - image: dockersamples/examplevotingapp_result
+    name: result-app-pod
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
