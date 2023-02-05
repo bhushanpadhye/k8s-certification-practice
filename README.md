@@ -2,7 +2,7 @@
 <h2 align="center">Certified Kubernetes Administrator</h2>
 
 <p align="center">
-  <img src="images/favicon.png" alt="favicon" width="240px" height="120px"/>
+  <img src="images/favicon.png" alt="favicon" width="250px" height="250px"/>
   <br>
   <i>This repository provides various tasks, labs and practice activities done by me to prepare for Certified Kubernetes Administrator.
     <br>Practice problems are taken from courses by Kode Kloud and LFS258(The Linux Foundation)</i>
