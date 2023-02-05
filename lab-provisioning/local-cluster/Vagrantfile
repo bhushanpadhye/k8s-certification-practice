@@ -14,6 +14,7 @@ NODE_IP_START = 11
 
 OSVERSION="7"
 DOCKER_CE_VERSION="20.10.9"
+VB_GROUP_NAME="/Kubernetes"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -39,10 +40,12 @@ Vagrant.configure("2") do |config|
                 vb.name = "control-plane-#{i}"
                 vb.memory = 2048
                 vb.cpus = 2
+                vb.customize ["modifyvm", :id, "--groups", "#{VB_GROUP_NAME}"]
             end
             node.vm.hostname = "control-plane-#{i}"
             node.vm.network :private_network, ip: IP_SERIES + "#{MASTER_IP_START + i}"
             node.vm.network "forwarded_port", guest: 22, host: "#{2710 + i}"
+            
             
 
             node.vm.provision "setup-host", type: "shell", :path => "scripts/centos/01-setup-host.sh" do |s|
@@ -67,11 +70,12 @@ Vagrant.configure("2") do |config|
                 vb.name = "worker-node-#{i}"
                 vb.memory = 2048
                 vb.cpus = 2
+                vb.customize ["modifyvm", :id, "--groups", "#{VB_GROUP_NAME}"]
             end
             node.vm.hostname = "worker-node-#{i}"
             node.vm.network :private_network, ip: IP_SERIES + "#{NODE_IP_START + i}"
             node.vm.network "forwarded_port", guest: 22, host: "#{2720 + i}"
-     
+            
 
             node.vm.provision "setup-host", type: "shell", :path => "scripts/centos/01-setup-host.sh" do |s|
                 s.args = ["eth1", "#{IP_SERIES}","#{NUM_CONTROL_PLANES}","#{NUM_WORKER_NODES}","#{MASTER_IP_START}","#{NODE_IP_START}"]
