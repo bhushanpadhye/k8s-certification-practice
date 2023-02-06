@@ -1,7 +1,16 @@
-<h1 align="center">Kubernetes practice and labs</h1>
-<h2 align="center">Certified Kubernetes Administrator</h2>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
 
-<p align="center">
+<h1 class="center">Kubernetes practice and labs</h1>
+<h2 class="center">Certified Kubernetes Administrator</h2>
+
+<p class="center">
   <img src="images/favicon.png" alt="favicon" width="250px" height="250px"/>
   <br>
   <i>This repository provides various tasks, labs and practice activities done by me to prepare for Certified Kubernetes Administrator.
