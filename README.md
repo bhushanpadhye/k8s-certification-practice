@@ -1,4 +1,4 @@
-<h1 align="justify">Kubernetes practice and labs</h1>
+<h1 align="center">Kubernetes practice and labs</h1>
 <h2 align="justify">Certified Kubernetes Administrator</h2>
 
 <p align="justify">
