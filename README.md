@@ -10,6 +10,10 @@
 </p>
 <hr/>
 
+## Repository Path
+
+[Practice Source Repository](https://github.com/bhushanpadhye/k8s-certification-practice.git)
+
 ## Get Started
 
 - [Lab Provisioning](./lab-provisioning/README.md)
