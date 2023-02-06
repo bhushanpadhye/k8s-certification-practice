@@ -18,4 +18,4 @@
 - [Labs 103 - ReplicaSet](./labs-103-replica-set/INDEX.md)
 - [Labs 104 - Deployment](./labs-104-deployment/INDEX.md)
 - [Labs 105 - Network Basic](./labs-105-network-basic/INDEX.md)
-- [Labs 106 - Sample Voting App](./labs-106-sample-voting-app/INDEX.md)
+- [Labs 106 - Sample Voting App](./labs-106-sample-voting-app/README.md)
