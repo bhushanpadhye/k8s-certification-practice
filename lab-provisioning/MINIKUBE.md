@@ -21,4 +21,9 @@
 
 4. Start minikube cluster
 <pre><code>minikube start</code></pre>
+ ![minikube start output](../images/minikube-start.png)
 
+5. To Clean up use command. It is helpful sometimes when minikube does not start after restart
+<pre><code>minikube delete --all --purge</code></pre>
+
+6. Since we have kubectl already installed. Minikube will make entry in ~/.kube/config file and set current context to minikube

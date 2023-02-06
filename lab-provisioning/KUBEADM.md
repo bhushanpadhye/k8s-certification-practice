@@ -1,6 +1,14 @@
 # Kubernetes Cluster Installation using Kubeadm
 
-<p>kubeadm, the community-suggested tool from the Kubernetes project, that makes installing Kubernetes easy and avoids vendor-specific installers. Getting a cluster running involves two commands: kubeadm init, that you run on a cp node, and then, kubeadm join, that you run on your worker or redundant cp nodes, and your cluster bootstraps itself. The flexibility of these tools allows Kubernetes to be deployed in a number of places.</p>
+<p>kubeadm, the community-suggested tool from the Kubernetes project, that makes installing Kubernetes easy and avoids vendor-specific installers. Getting a cluster running involves two commands: kubeadm init, that you run on a cp node, and then, kubeadm join, that you run on your worker or redundant cp nodes, and your cluster bootstraps itself. The flexibility of these tools allows Kubernetes to be deployed in a number of places.
+
+To join other nodes to the cluster, you will need at least one token and an SHA256 hash. This information is returned by the command kubeadm init. Once the cp has initialized, you would apply a network plugin. Main steps:
+
+- Run kubeadm init on the control plane node.
+- Create a network for IP-per-Pod criteria.
+- Run kubeadm join on workers or secondary cp nodes.</p>
+
+### Step By Step Guide
 
 1. login as root user:
  <pre><code>sudo -i</code></pre>
