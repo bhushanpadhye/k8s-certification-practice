@@ -25,4 +25,7 @@ Note:
 
 For more details, refer [Docker Example](https://github.com/dockersamples/example-voting-app)
 
+## Docker Voting Application Microservice Architecture
+![Docker Voting Application Microservice Architecture](../images/docker-voting-app-arch.jpg)
+
 
