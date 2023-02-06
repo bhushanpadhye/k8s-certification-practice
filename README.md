@@ -12,7 +12,7 @@
 
 ## Get Started
 
-- [Lab Provisioning](./lab-provisioning/PROVISIONING.md)
+- [Lab Provisioning](./lab-provisioning/README.md)
 - [Labs 101 - Basic Commands](./labs-101-basic-commands/INDEX.md)
 - [Labs 102 - Pod](./labs-102-pod/INDEX.md)
 - [Labs 103 - ReplicaSet](./labs-103-replica-set/INDEX.md)
