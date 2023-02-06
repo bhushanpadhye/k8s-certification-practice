@@ -1,4 +1,4 @@
-# Docker's sample voting app
+# [LAB-106] Docker's sample voting app
 
 ### Task Definition
 
